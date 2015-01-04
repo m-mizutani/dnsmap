@@ -23,9 +23,11 @@
     <![endif]-->
 
     <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="/js/d3.v3.min.js"></script>
-    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/js/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="/js/jquery.fileupload.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
   </head>
 
   <body>
@@ -93,7 +95,22 @@
           </div>
 
 	  <div id="aura_list">
-	    
+	    <input id="fileupload" type="file" name="pcap" data-url="upload">
+	    <!--
+	    <form method="post" id="" action="/upload" enctype="multipart/form-data">
+	      <input type="file" name="pcap" value="" />
+	      <input type="submit" name="" value="upload" />
+	    </form>
+	    -->
+	    <script type="text/javascript">
+	      $('#fileupload').fileupload({
+	          progressall: function (e, data) {
+	              var progress = parseInt(data.loaded / data.total * 100, 10);
+    	      console.log(progress);
+	      }
+	      });
+	      
+	    </script>
 	  </div>
         </div>
       </div>
