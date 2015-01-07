@@ -37,22 +37,50 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li id="home" class="active"><a href="#">Home</a></li>
+            <li id="example"><a href="#example">Examples</a></li>
+            <li id="about"><a href="#about">About</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="main">
-      <div id="" class="title">
+      <div id="home" class="content">
 	<h1>DnsMap</h1>
-	<p>Create your DNS map</p>
+	<p>Uncover actual DNS world</p>
 	<img src="/img/title.png" class="title" alt="" />
+	<h2>Upload your tcpdump format (pcap) file</h2>
+	<div id="uploader">
+	  <input id="fileupload" type="file" name="pcap" data-url="upload">
+	</div>
+	<div id="result" class=""></div>
+	<p>NOTE: generated image will be made public.</p>
       </div>
-      <input id="fileupload" type="file" name="pcap" data-url="upload">
-      <div id="result" class="">      
+
+      <div id="about" class="content hidden">
+	<h1>About DnsMap</h1>
+	<div class="figures">
+	  <div class="figure">
+	    <h2>A Record</h2>
+	    <img src="/img/a.png" class="figure" alt="A record" />	  
+	  </div>
+
+	  <div class="figure">
+	    <h2>CNAME Record</h2>
+	    <img src="/img/cname.png" class="figure" alt="CNAME record" />
+	  </div>
+
+	  <div class="figure">
+	    <h2>Aggregated IP addresses</h2>
+	    <img src="/img/aggregated.png" class="figure" alt="Aggregated addresses" />	  
+	  </div>
+	  
+	</div>
+      </div>
+
+      <div id="example" class="content hidden">
+	<h1>Examples</h1>
       </div>
     </div>
 

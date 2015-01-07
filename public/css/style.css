@@ -3,7 +3,30 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-div.main {
+h2 {
+    font-size: 14pt;
+}
+div.content {
     padding: 40px 15px;
     text-align: center;
+}
+
+div#uploader {
+    padding: 10px 40%;
+}
+
+div.figures {
+
+}
+div.figure {
+    float: left;
+    margin: 30px;
+}
+
+img.figure {
+    width: 240px;
+    
+}
+.hidden {
+    display: none;
 }
