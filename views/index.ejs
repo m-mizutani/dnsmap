@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,23 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Masayoshi Mizutani">
+    <link rel="icon" href="../../favicon.ico">
 
-    <title>DNS Map</title>
+    <title>DNSmap</title>
 
-    <link href="/css/cssreset-min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 
+    <!-- Custom styles for this template -->
     <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="/js/jquery.fileupload.js"></script>
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-
   </head>
 
   <body>
-    <input id="fileupload" type="file" name="pcap" data-url="upload">
-    <div id="result" class="">      
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">DnsMap</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="main">
+      <div id="" class="title">
+	<h1>DnsMap</h1>
+	<p>Create your DNS map</p>
+	<img src="/img/title.png" class="title" alt="" />
+      </div>
+      <input id="fileupload" type="file" name="pcap" data-url="upload">
+      <div id="result" class="">      
+      </div>
     </div>
+
+    <script src="/js/bootstrap.min.js"></script>
   </body>
 </html>

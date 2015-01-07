@@ -1,0 +1,9 @@
+body {
+    padding-top: 50px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+div.main {
+    padding: 40px 15px;
+    text-align: center;
+}
