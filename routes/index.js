@@ -31,7 +31,7 @@ router.post('/upload', function(req, res) {
 
     var old_path = './' + f._writeStream.path;
     var fname = path.basename(f._writeStream.path);
-    var script = '/Users/mizutani/works/dvrtools/bin/dnsmap';
+    var script = 'dnsmap';
     var args = ['-o', fname, '-l', 'fdp', '-a', '-r', old_path];
     console.log(args);
     var dnsmap_proc = spawn(script, args);
