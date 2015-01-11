@@ -4,9 +4,8 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var routes = require('./routes/index');
-
+var yaml = require('js-yaml');
+var fs = require('fs');
 var app = express();
 
 // view engine setup
@@ -20,7 +19,12 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+var settings = yaml.safeLoad(fs.readFileSync('settings.yml', 'utf8'));
+var route_index = require('./routes/index');
+var route_dnsmap = require('./routes/dnsmap');
+route_dnsmap.configure(settings);
+app.use('/', route_index);
+app.use('/dnsmap/', route_dnsmap);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

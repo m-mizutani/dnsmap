@@ -24,8 +24,7 @@ div.figure {
 }
 
 img.figure {
-    width: 240px;
-    
+    width: 200px;    
 }
 .hidden {
     display: none;
