@@ -27,8 +27,9 @@ router.post('/upload', function(req, res) {
   form.encoding = "utf-8";
   form.uploadDir = "./uploads"
   var log = {
-    addr: req._remoteAddress,
-    header: req.headers
+    addr: req.ip,
+    path: req.path,
+    header: req.headers,    
   };
 
   var size = parseInt(req.headers['content-length']);

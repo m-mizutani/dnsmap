@@ -12,10 +12,13 @@ $(document).ready(function() {
       var r = data.result;
       console.log(r);
       if (r.msg === 'OK') {
+        $('#uploader').empty();
         $('#status').empty();
-        $('#status').append('<div>Completed</div>' +
+        var url = location.protocol + '//' + location.host + r.url;
+        $('#status').append('<div><a href="' + url + '" target="_blank">' + 
+                            url + '</a></div>' +
                             '<div class="thumb">' + 
-                            '<a href="' + data.result.url + '" target="_blank">' + 
+                            '<a href="' + r.url + '" target="_blank">' + 
                             '<img src="' + r.thumb + '" />' +
                             '</div>' +
                             '</a>');

@@ -14,6 +14,13 @@ div.content {
 div#uploader {
     padding: 10px 40%;
 }
+div.thumb img {
+    padding: 5px;
+    border: 2px solid #eee;
+}
+div.thumb img:hover {
+    border: 2px solid #bbb;
+}
 
 div.figures {
 
