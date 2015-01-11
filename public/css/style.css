@@ -43,3 +43,8 @@ img.figure {
 .hidden {
     display: none;
 }
+
+div.footer {
+    text-align: center;
+    margin: 10px;
+}
