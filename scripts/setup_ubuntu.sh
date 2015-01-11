@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt-get install -y python-software-properties build-essential cmake libev4 libev-dev libpcap-dev git libmsgpack-dev libmsgpack3 zlib1g-dev libssl-dev  libreadline-dev
+sudo apt-get install -y python-software-properties build-essential cmake libev4 libev-dev libpcap-dev git libmsgpack-dev libmsgpack3 zlib1g-dev libssl-dev  libreadline-dev imagemagick
 sudo add-apt-repository -y ppa:chris-lea/node.js
 sudo apt-get update -y
 sudo apt-get install nodejs git graphviz -y
