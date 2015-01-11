@@ -15,13 +15,16 @@ $(document).ready(function() {
         $('#uploader').empty();
         $('#status').empty();
         var url = location.protocol + '//' + location.host + r.url;
+        var tweet_url = 'https://twitter.com/intent/tweet?text=DnsMap+' + url;
         $('#status').append('<div><a href="' + url + '" target="_blank">' + 
                             url + '</a></div>' +
                             '<div class="thumb">' + 
                             '<a href="' + r.url + '" target="_blank">' + 
                             '<img src="' + r.thumb + '" />' +
                             '</div>' +
-                            '</a>');
+                            '</a>' + 
+                           '<a href="' + tweet_url + '" target="_blank">' +
+                           'tweet</a>');
       } else {
         $('#status').text('Error, ' + r.err);
       }

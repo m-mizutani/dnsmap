@@ -34,7 +34,7 @@ router.post('/upload', function(req, res) {
 
   var size = parseInt(req.headers['content-length']);
 
-  var filesize_limit = 100 * 1000 * 1000;
+  var filesize_limit = 11 * 1000 * 1000;
   if (size > filesize_limit) {
     res.writeHead(200, {'content-type': 'application/json'});
     var msg = {msg: 'NG', err: 'A file over 10MB is not allowed'}
