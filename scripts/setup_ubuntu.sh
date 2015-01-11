@@ -23,7 +23,7 @@ source ~/.bash_profile
 rbenv install 2.1.4
 rbenv global 2.1.4
 rbenv rehash
-gem install dvrtools
+gem install dvrtools fluentd
 
 git clone https://github.com/m-mizutani/dnsmap.git
 cd dnsmap && npm install

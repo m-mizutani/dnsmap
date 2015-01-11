@@ -6,10 +6,16 @@ var util = require('util');
 var spawn = require('child_process').spawn;
 var path = require('path');
 var easyimg = require('easyimage');
+var logger = require('fluent-logger')
 
 var settings;
 router.configure = function(opt) {
   settings = opt;
+  logger.configure('dnsmap', {
+    host: opt.dnsmap.fluentd.host,  
+    port: opt.dnsmap.fluentd.port,
+    timeout: 3.0
+  });
 };
 
 router.get('/', function(req, res) {
@@ -20,14 +26,20 @@ router.post('/upload', function(req, res) {
   var form = new formidable.IncomingForm();
   form.encoding = "utf-8";
   form.uploadDir = "./uploads"
-  console.log(req.headers);
+  var log = {
+    addr: req._remoteAddress,
+    header: req.headers
+  };
+
   var size = parseInt(req.headers['content-length']);
 
   var filesize_limit = 100 * 1000 * 1000;
   if (size > filesize_limit) {
     res.writeHead(200, {'content-type': 'application/json'});
-    res.end(JSON.stringify({msg: 'NG', 
-                            err: 'A file over 10MB is not allowed'}));
+    var msg = {msg: 'NG', err: 'A file over 10MB is not allowed'}
+    log.res = msg;
+    logger.emit('fail', log);
+    res.end(JSON.stringify(msg));
     return;
   }
   
@@ -64,7 +76,10 @@ router.post('/upload', function(req, res) {
             }).then(function(image) {
               console.log(image);
               res.writeHead(200, {'content-type': 'application/json'});
-              res.end(JSON.stringify({msg: 'OK', url: new_path, thumb: thumb_path}));
+              var msg = {msg: 'OK', url: new_path, thumb: thumb_path};
+              log.msg = msg;
+              logger.emit('complete', log);
+              res.end(JSON.stringify(msg));
             }, function(err) {
             });
           }
@@ -77,6 +92,8 @@ router.post('/upload', function(req, res) {
     } catch (e) {
       console.log('-- exception --');
       console.log(e);
+      log.ex = e;
+      logger.emit('exception', log);
     }
   });
 });

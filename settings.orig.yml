@@ -1,3 +1,6 @@
 dnsmap:
   script_path: dnsmap
+  fluentd:
+    host: localhost
+    port: 24224  
   
