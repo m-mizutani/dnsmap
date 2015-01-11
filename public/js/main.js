@@ -2,14 +2,26 @@ $(document).ready(function() {
   $('#fileupload').fileupload({
     progressall: function (e, data) {
       var progress = parseInt(data.loaded / data.total * 100, 10);
-      console.log(progress);
+      if (progress < 100) {
+        $('#status').text('Uploading ' + progress + '%');
+      } else {
+        $('#status').text('Processing...');
+      }
     },
     done: function(e, data) {
-      console.log(data.result);
-      console.log('done!');
-      $('#result').append('<div>' + 
-                         '<a href="' + data.result.url + '">download</a>' +
-                         '</div>');
+      var r = data.result;
+      console.log(r);
+      if (r.msg === 'OK') {
+        $('#status').empty();
+        $('#status').append('<div>Completed</div>' +
+                            '<div class="thumb">' + 
+                            '<a href="' + data.result.url + '" target="_blank">' + 
+                            '<img src="' + r.thumb + '" />' +
+                            '</div>' +
+                            '</a>');
+      } else {
+        $('#status').text('Error, ' + r.err);
+      }
     },
   });
 

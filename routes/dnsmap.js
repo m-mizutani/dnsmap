@@ -5,6 +5,7 @@ var formidable = require('formidable');
 var util = require('util');
 var spawn = require('child_process').spawn;
 var path = require('path');
+var easyimg = require('easyimage');
 
 var settings;
 router.configure = function(opt) {
@@ -22,11 +23,11 @@ router.post('/upload', function(req, res) {
   console.log(req.headers);
   var size = parseInt(req.headers['content-length']);
 
-
   var filesize_limit = 100 * 1000 * 1000;
   if (size > filesize_limit) {
-    res.writeHead(403, {'content-type': 'text/html'});
-    res.end('A file over 10MB is not allowed');
+    res.writeHead(200, {'content-type': 'application/json'});
+    res.end(JSON.stringify({msg: 'NG', 
+                            err: 'A file over 10MB is not allowed'}));
     return;
   }
   
@@ -38,22 +39,40 @@ router.post('/upload', function(req, res) {
     var args = ['-o', fname, '-l', 'fdp', '-a', '-r', old_path];
     console.log(script + ' ' + args.join(' '));
     try {
+      // Start conversion
       var dnsmap_proc = spawn(script, args);      
       dnsmap_proc.stderr.on('data', function(data) {
         console.log('DNSMAP, stderr: ' + data);
       });
       dnsmap_proc.on('exit', function(code) {
         console.log('status: ' + code);
+        var old_local_path = fname + '.png';
+        var dot_path = fname + '.dot';
         var new_path = "/map/" + fname + ".png";
-        fs.rename(fname + ".png", "./public/" + new_path, function(err) {
-          if (err) throw err;
+        var new_local_path = "./public/" + new_path;
+        var thumb_path = '/thumb/' + fname + '.png';
+        var thumb_local_path = './public/' + thumb_path;
+
+        fs.rename(old_local_path, new_local_path, function(err) {
+          if (err) { throw err; }
+          else {
+            // Create thumbnail
+            easyimg.thumbnail({
+              src: new_local_path,
+              dst: thumb_local_path,
+              width: 300
+            }).then(function(image) {
+              console.log(image);
+              res.writeHead(200, {'content-type': 'application/json'});
+              res.end(JSON.stringify({msg: 'OK', url: new_path, thumb: thumb_path}));
+            }, function(err) {
+            });
+          }
         });
-        fs.unlink(fname + ".dot", function(err) {
+        fs.unlink(dot_path, function(err) {
           if (err) throw err;
         });
 
-        res.writeHead(200, {'content-type': 'application/json'});
-        res.end(JSON.stringify({msg: 'OK', url: new_path}));
       });    
     } catch (e) {
       console.log('-- exception --');
