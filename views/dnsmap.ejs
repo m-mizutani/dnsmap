@@ -10,11 +10,12 @@
 
     <title>DNSmap</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- JacaScript-->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="/js/jquery.fileupload.js"></script>
@@ -58,32 +59,53 @@
 	  <p>NOTE: generated image will be made public.</p>
 	</div>
       </div>
-
+      
       <div id="about" class="content hidden">
 	<h1>About DnsMap</h1>
-	<div class="figures">
-	  <div class="figure">
-	    <h2>A Record</h2>
-	    <img src="/img/a.png" class="figure" alt="A record" />	  
+	<div class="text">
+	  <h2>Samples</h2>
+	  <div class="figures">
+	    <div class="figure thumb">
+	      <h3>A Record</h3>
+	      <img src="/img/a.png" class="figure" alt="A record" />
+	    </div>
+
+	    <div class="figure thumb">
+	      <h3>CNAME Record</h3>
+	      <img src="/img/cname.png" class="figure" alt="CNAME record" />
+	    </div>
+
+	    <div class="figure thumb">
+	      <h3>Aggregated IP addresses</h3>
+	      <img src="/img/aggregated.png" class="figure" alt="Aggregated addresses" />
+	    </div>
 	  </div>
 
-	  <div class="figure">
-	    <h2>CNAME Record</h2>
-	    <img src="/img/cname.png" class="figure" alt="CNAME record" />
+	  <br style="clear:both;">
+	  <h2>Author</h2>
+	  <div class="">
+	    Masayoshi Mizutani, <a href="https://twitter.com/m_mizutani">@m_mizutani</a>, mizutani@sfc.wide.ad.jp
 	  </div>
-
-	  <div class="figure">
-	    <h2>Aggregated IP addresses</h2>
-	    <img src="/img/aggregated.png" class="figure" alt="Aggregated addresses" />	  
-	  </div>
-	  
 	</div>
       </div>
 
       <div id="example" class="content hidden">
 	<h1>Examples</h1>
+	<div class="example">
+	  <h2>NAPENTHES</h2>
+	  <div id="">
+	    Source: : 
+	    <a href="http://www.snaketrap.co.uk/pcaps/Ncapture.pcap">
+	      http://www.snaketrap.co.uk/pcaps/Ncapture.pcap
+	    </a>
+	  </div>
+	  <div class="thumb">
+	    <a href="/map/example1.png"><img src="/thumb/example1.png"/></a>
+	  </div>
+	</div>
       </div>
     </div>
+
 
     <script src="/js/bootstrap.min.js"></script>
   </body>

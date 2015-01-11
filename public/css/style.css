@@ -4,8 +4,14 @@ body {
 }
 
 h2 {
-    font-size: 14pt;
+    margin: 10px 0px;
+    font-size: 18pt;
 }
+
+h3 {
+    font-size: 12pt;
+}
+
 div.content {
     padding: 40px 15px;
     text-align: center;
@@ -16,18 +22,19 @@ div#uploader {
 }
 div.thumb img {
     padding: 5px;
-    border: 2px solid #eee;
+    border: 2px solid #ddd;
 }
 div.thumb img:hover {
-    border: 2px solid #bbb;
+    border: 2px solid #aaa;
 }
 
-div.figures {
-
+div.text {
+    margin: 0px 10%;
+    text-align: left;
 }
 div.figure {
     float: left;
-    margin: 30px;
+    margin: 0px 10px;
 }
 
 img.figure {
