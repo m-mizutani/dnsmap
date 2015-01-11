@@ -16,7 +16,7 @@ $(document).ready(function() {
         $('#status').empty();
         var url = location.protocol + '//' + location.host + r.url;
         var tweet_url = 'https://twitter.com/intent/tweet?text=DNSmap+' + 
-            r.thumb + '+' + url + '&hashtags=dnsmap';
+            url + '&hashtags=dnsmap';
             
         var html = '<div><a href="' + url + '" target="_blank">' + 
             url + '</a></div>' +
