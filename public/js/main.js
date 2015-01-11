@@ -15,17 +15,20 @@ $(document).ready(function() {
         $('#uploader').empty();
         $('#status').empty();
         var url = location.protocol + '//' + location.host + r.url;
-        var tweet_url = 'https://twitter.com/intent/tweet?text=DNSmap+' + url + 
-            '&hashtags=dnsmap';
-        $('#status').append('<div><a href="' + url + '" target="_blank">' + 
-                            url + '</a></div>' +
-                            '<div class="thumb">' + 
-                            '<a href="' + r.url + '" target="_blank">' + 
-                            '<img src="' + r.thumb + '" />' +
-                            '</div>' +
-                            '</a>' + 
-                           '<a href="' + tweet_url + '" target="_blank">' +
-                           'tweet</a>');
+        var tweet_url = 'https://twitter.com/intent/tweet?text=DNSmap+' + 
+            r.thumb + '+' + url + '&hashtags=dnsmap';
+            
+        var html = '<div><a href="' + url + '" target="_blank">' + 
+            url + '</a></div>' +
+            '<div class="thumb">' + 
+            '<a href="' + r.url + '" target="_blank">' + 
+            '<img src="' + r.thumb + '" />' +
+            '</div>' +
+            '</a>' + 
+            '<a class="css_btn_class" href="' + tweet_url + '" target="_blank">' +
+            'Tweet the image</a>';
+
+        $('#status').append(html);
       } else {
         $('#status').text('Error, ' + r.err);
       }

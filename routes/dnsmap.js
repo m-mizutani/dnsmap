@@ -47,7 +47,7 @@ router.post('/upload', function(req, res) {
   form.parse(req, function(err, fields, files) {
     var f = files.pcap;
     var old_path = './' + f._writeStream.path;
-    var fname = path.basename(f._writeStream.path);
+    var fname = path.basename(f._writeStream.path).slice(7 + 16);
     var script = settings.dnsmap.script_path;
     var args = ['-o', fname, '-l', 'fdp', '-a', '-r', old_path];
     console.log(script + ' ' + args.join(' '));

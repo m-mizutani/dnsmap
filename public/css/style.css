@@ -48,3 +48,33 @@ div.footer {
     text-align: center;
     margin: 10px;
 }
+
+
+a.css_btn_class {
+    margin: 10px;
+    font-size:13px;
+    font-family:Verdana;
+    font-weight:normal;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    border:1px solid #84bbf3;
+    padding:6px 18px;
+    text-decoration:none;
+    background:-moz-linear-gradient( center top, #79bbff 5%, #378de5 100% );
+    background:-ms-linear-gradient( top, #79bbff 5%, #378de5 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5');
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #79bbff), color-stop(100%, #378de5) );
+    background-color:#79bbff;
+    color:#ffffff;
+    display:inline-block;
+}.css_btn_class:hover {
+    background:-moz-linear-gradient( center top, #378de5 5%, #79bbff 100% );
+    background:-ms-linear-gradient( top, #378de5 5%, #79bbff 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff');
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #378de5), color-stop(100%, #79bbff) );
+    background-color:#378de5;
+}.css_btn_class:active {
+    position:relative;
+    top:1px;
+}
