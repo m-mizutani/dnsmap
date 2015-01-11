@@ -8,6 +8,6 @@ var path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.redirect('/dnsmap');
 });
 module.exports = router;

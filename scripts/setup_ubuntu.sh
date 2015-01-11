@@ -29,3 +29,4 @@ git clone https://github.com/m-mizutani/dnsmap.git
 cd dnsmap && npm install
 mkdir -p public/map
 mkdir -p uploads
+cp settings.orig.yml settings.yml
