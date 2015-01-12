@@ -20,7 +20,13 @@ router.configure = function(opt) {
 
 router.get('/', function(req, res) {
   res.render('dnsmap', { title: 'Express' });
-  console.log(settings);
+  var log = {
+    addr: req.ip,
+    path: req.path,
+    header: req.headers,    
+  };
+  logger.emit('access', log);
+  
 });
 router.post('/upload', function(req, res) {
   var form = new formidable.IncomingForm();
