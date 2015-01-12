@@ -15,7 +15,7 @@ $(document).ready(function() {
         $('#uploader').empty();
         $('#status').empty();
         var url = location.protocol + '//' + location.host + r.url;
-        var tweet_url = 'https://twitter.com/intent/tweet?text=DNSmap+' + 
+        var tweet_url = 'https://twitter.com/intent/tweet?text=DNSmap+http://pktviz.org/dnsmap+' + 
             url + '&hashtags=dnsmap';
             
         var html = '<div><a href="' + url + '" target="_blank">' + 
