@@ -1,0 +1,8 @@
+.DS_Store
+debug.sh
+node_modules/
+public/.DS_Store
+public/map/up*
+public/thumb/up*
+settings.yml
+uploads/
